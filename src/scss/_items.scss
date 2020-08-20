@@ -1,0 +1,111 @@
+.items-inner {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media (max-width: 1199px) {
+    height: 100%;
+  }
+  .items-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #FFF;
+  }
+  .items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    @media (max-width: 1199px) {
+      justify-content: space-around;
+    }
+    .item-wrapper {
+      max-width: 320px;
+      @media (max-width: 1199px) {
+        margin-bottom: 30px;
+      }
+      .item {
+        min-height: 480px;
+        min-width: 320px;
+        cursor: pointer;
+        color: #666;
+        position: relative;
+        padding: 20px 10px 10px 40px;
+        background: transparent url('../img/cat-default.png') center top/contain no-repeat;
+        &.selected {
+          background: transparent url('../img/cat-selected.png') center top/contain no-repeat;
+          .item-weight {
+            &:before {
+              background: #E52E7A;
+            }
+          }
+        }
+        &.disabled {
+          background: transparent url('../img/cat-disabled.png') center top/contain no-repeat;
+          cursor: default;
+          .item-weight {
+            &:before {
+              background: #B3B3B3;
+            }
+          }
+          &+ .text-bottom {
+            color: yellow;
+          }
+        }
+        .item-title {
+          font-size: 48px;
+          color: #000000;
+        }
+        .item-subtitle {
+          font-size: 24px;
+          color: #000000;
+        }
+        .item-list {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 15px;
+        }
+        .item-weight {
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100px;
+          height: 100px;
+          bottom: 30px;
+          right: 30px;
+          color: #FFF;
+          font-size: 42px;
+          line-height: .8;
+          text-align: center;
+          span {
+            position: relative;
+            text-align: center;
+          }
+          &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2EA8E6;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+          }
+        }
+      }
+      .text-bottom {
+        text-align: center;
+        color: #FFF;
+        margin-top: 15px;
+        font-size: 13px;
+        .item-cta {
+          color: #2EA8E6;
+          text-decoration: none;
+          border-bottom: 1px dashed #2EA8E6;
+        }
+      }
+    }
+  }
+}
